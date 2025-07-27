@@ -1,43 +1,61 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>グリッドギャラリー</title>
+  <title>Grid Gallery</title>
   <style>
     body {
       margin: 0;
       font-family: sans-serif;
-      background-image: 
+      background-image:
         linear-gradient(to right, #ccc 1px, transparent 1px),
         linear-gradient(to bottom, #ccc 1px, transparent 1px);
-      background-size: 40px 40px;
+      background-size: 60px 60px;
     }
 
-    /* モバイル用ナビメニュー（全画面オーバーレイ） */
+    /* Menu Icon */
+    .menu-icon {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      cursor: pointer;
+      z-index: 300;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .menu-icon div {
+      width: 30px;
+      height: 3px;
+      background-color: black;
+    }
+
+    /* Navigation for PC */
     .nav {
       position: fixed;
       top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: white;
-      display: flex;
+      right: 0;
+      width: 16.6666%; /* 1/6 of screen */
+      height: 100vh;
+      background-color: rgba(255, 255, 255, 0.95);
+      display: none;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      transform: translateY(-100%);
-      transition: transform 0.3s ease;
       z-index: 200;
+      transition: transform 0.3s ease;
     }
 
     .nav.open {
-      transform: translateY(0);
+      display: flex;
     }
 
     .nav ul {
       list-style: none;
       padding: 0;
+      margin: 0;
       text-align: center;
     }
 
@@ -48,45 +66,18 @@
     .nav a {
       text-decoration: none;
       color: black;
-      font-size: 1.5rem;
+      font-size: 1.2rem;
       font-weight: bold;
     }
 
-    /* メニューアイコン（≡） */
-    .menu-icon {
-      position: fixed;
-      top: 20px;
-      left: 20px;
-      cursor: pointer;
-      z-index: 300;
-    }
-
-    .menu-icon div {
-      width: 25px;
-      height: 3px;
-      background-color: black;
-      margin: 5px 0;
-      transition: all 0.3s ease;
-    }
-
-    /* 閉じるボタン（×） */
-    .close-btn {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      font-size: 2rem;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    /* グリッドコンテナ */
+    /* Grid Container */
     .grid-container {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 30px;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 40px;
       max-width: 1400px;
-      margin: 140px auto;
-      padding: 0 40px;
+      margin: 180px auto 80px;
+      padding: 0 60px;
     }
 
     .square {
@@ -128,34 +119,39 @@
       transform: scale(1.05);
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 1024px) {
       .grid-container {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
         padding: 0 20px;
+        margin-top: 120px;
+      }
+
+      .nav {
+        width: 100%;
+        background-color: white;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- メニューアイコン（≡） -->
+  <!-- Menu Icon -->
   <div class="menu-icon" onclick="toggleMenu()">
-    <div></div>
     <div></div>
     <div></div>
   </div>
 
-  <!-- モバイルナビゲーション -->
+  <!-- Navigation Menu -->
   <nav class="nav" id="navMenu">
-    <div class="close-btn" onclick="toggleMenu()">×</div>
     <ul>
-      <li><a href="index.html">ホーム</a></li>
-      <li><a href="#">プロフィール</a></li>
-      <li><a href="#">作品一覧</a></li>
-      <li><a href="#">お問い合わせ</a></li>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Works</a></li>
+      <li><a href="#">Contact</a></li>
     </ul>
   </nav>
 
-  <!-- グリッド -->
+  <!-- Grid Gallery -->
   <div class="grid-container">
     <div class="square" onclick="goToDetail(1)">
       <div class="overlay"></div>
@@ -173,33 +169,18 @@
       <div class="overlay"></div>
       <img src="https://picsum.photos/id/1033/600/600" alt="Image 4" />
     </div>
-    <div class="square" onclick="goToDetail(5)">
-      <div class="overlay"></div>
-      <img src="https://picsum.photos/id/1042/600/600" alt="Image 5" />
-    </div>
-    <div class="square" onclick="goToDetail(6)">
-      <div class="overlay"></div>
-      <img src="https://picsum.photos/id/1060/600/600" alt="Image 6" />
-    </div>
-    <div class="square" onclick="goToDetail(7)">
-      <div class="overlay"></div>
-      <img src="https://picsum.photos/id/1070/600/600" alt="Image 7" />
-    </div>
-    <div class="square" onclick="goToDetail(8)">
-      <div class="overlay"></div>
-      <img src="https://picsum.photos/id/1080/600/600" alt="Image 8" />
-    </div>
+    <!-- Add more squares as needed -->
   </div>
 
   <script>
     function toggleMenu() {
-      const nav = document.getElementById('navMenu');
-      nav.classList.toggle('open');
+      document.getElementById('navMenu').classList.toggle('open');
     }
 
     function goToDetail(id) {
       window.location.href = `detail.html?id=${id}`;
     }
   </script>
+
 </body>
 </html>
