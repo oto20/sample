@@ -1,73 +1,82 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <title>ポートフォリオ</title>
-  <link rel="stylesheet" href="style.css">
-  <style>
-    body {
-      margin: 0;
-      background-image: 
-        linear-gradient(to right, #ccc 1px, transparent 1px),
-        linear-gradient(to bottom, #ccc 1px, transparent 1px);
-      background-size: 50px 50px;
-      padding: 100px 60px 60px;
-      font-family: sans-serif;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 30px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .square {
-      position: relative;
-      width: 100%;
-      padding-top: 100%; /* 正方形維持 */
-      background-color: black;
-      overflow: hidden;
-      cursor: pointer;
-    }
-
-    .square img {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-
-    .square:hover img {
-      opacity: 1;
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <title>shinsaku okamoto</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <div class="grid">
-    <!-- プロジェクト1 -->
-    <div class="square" onclick="goToDetail('001')">
-      <img src="images/project01.jpg" alt="001">
-    </div>
+<nav class="menu">
 
-    <!-- プロジェクト2 -->
-    <div class="square" onclick="goToDetail('002')">
-      <img src="images/project02.jpg" alt="002">
-    </div>
-
-    <!-- 必要に応じてここにどんどん追加 -->
+  <!-- 名前（何も起こらない） -->
+  <div class="menu-item static">
+    <div class="menu-title">shinsaku okamoto</div>
   </div>
 
-  <script>
-    function goToDetail(projectId) {
-      window.location.href = `projects/${projectId}.html`;
-    }
-  </script>
+  <!-- project -->
+  <div class="menu-item">
+    <button class="menu-title">project</button>
+    <div class="submenu">
 
+      <div class="item">
+        <a class="item-link" href="projects/001.html" target="_blank">
+          ● 001
+        </a>
+      </div>
+
+      <!-- ここに ●002, ●003 を追加していく -->
+
+    </div>
+  </div>
+
+  <!-- text -->
+  <div class="menu-item">
+    <button class="menu-title">text</button>
+    <div class="submenu">
+
+      <div class="item">
+        <button class="item-title">
+          ● 現代日本の住宅作品における領域の重なりの修辞
+        </button>
+
+        <div class="item-detail">
+          <ul>
+            <li><span>type:</span> thesis</li>
+            <li><span>year:</span> 2025</li>
+            <li>
+              <span>publication:</span>
+              <a href="https://www.aij.or.jp/" target="_blank">AIJ</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- about -->
+  <div class="menu-item">
+    <button class="menu-title">about</button>
+    <div class="submenu">
+      <p class="plain-text">
+        建築・研究・テキスト。
+      </p>
+    </div>
+  </div>
+
+  <!-- link -->
+  <div class="menu-item">
+    <button class="menu-title">link</button>
+    <div class="submenu">
+      <ul>
+        <li><a href="https://example.com" target="_blank">external link</a></li>
+      </ul>
+    </div>
+  </div>
+
+</nav>
+
+<script src="script.js"></script>
 </body>
 </html>
