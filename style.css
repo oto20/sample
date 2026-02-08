@@ -109,3 +109,23 @@ a {
 .text-item a {
   text-decoration: none;
 }
+
+html, body {
+  overflow-x: hidden;
+}
+
+@media (max-width: 600px) {
+
+  /* スマホでは改行OKにする */
+  .menu-block .submenu div {
+    white-space: normal;
+  }
+
+  /* 長いタイトルもはみ出さない */
+  .text-item,
+  .menu-title {
+    white-space: normal;
+    word-break: break-word;
+  }
+
+}
