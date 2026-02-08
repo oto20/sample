@@ -18,32 +18,28 @@ a {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  padding-top: 80px; /* 全体を少し上へ */
+  padding-top: 80px;
 }
 
 .menu {
-  width: 320px;
+  width: 360px;
 }
 
 .name {
   margin-bottom: 24px;
 }
 
-/* --- menu block --- */
-
 .menu-block {
   margin-bottom: 12px;
 }
 
 .menu-title,
-.text-item,
-.link-item {
+.text-item {
   display: flex;
   align-items: baseline;
   cursor: pointer;
 }
 
-/* 記号カラム固定（左右揺れ防止） */
 .menu-title::before,
 .text-item::before {
   width: 18px;
@@ -62,33 +58,44 @@ a {
   transform: rotate(90deg);
 }
 
+.text-item::before {
+  content: "●";
+}
+
 .submenu {
   display: none;
   margin-left: 24px;
   margin-top: 4px;
 }
 
-.menu-block.open .submenu {
+.menu-block.open > .submenu {
   display: block;
 }
 
-
-/* --- text meta --- */
-
-.text-meta {
+.text-detail {
+  display: none;
   margin-left: 24px;
   margin-bottom: 8px;
 }
 
-.text-meta div {
+.text-detail.open {
+  display: block;
+}
+
+.text-detail div {
   display: flex;
   gap: 24px;
 }
 
-.text-meta span {
-  width: 100px;
-}
-.text-item a {
-  white-space: nowrap;
+.text-detail span {
+  width: 110px;
 }
 
+.text-body p {
+  margin: 0 0 12px 0;
+  line-height: 1.6;
+}
+
+.text-item {
+  white-space: nowrap;
+}

@@ -1,6 +1,4 @@
-const titles = document.querySelectorAll(".menu-title.has-plus");
-
-titles.forEach(title => {
+document.querySelectorAll(".menu-title.has-plus").forEach(title => {
   title.addEventListener("click", () => {
     const block = title.parentElement;
 
@@ -14,5 +12,12 @@ titles.forEach(title => {
 
     block.classList.toggle("open");
     title.classList.toggle("open");
+  });
+});
+
+document.querySelectorAll(".text-item.has-plus-inner").forEach(item => {
+  item.addEventListener("click", () => {
+    const detail = item.nextElementSibling;
+    detail.classList.toggle("open");
   });
 });
