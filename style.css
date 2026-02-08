@@ -1,69 +1,93 @@
 * {
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
-  font-family: sans-serif;
 }
 
 body {
+  margin: 0;
+  font-family: sans-serif;
+  color: #000;
+}
+
+a {
+  color: #000;
+  text-decoration: underline;
+}
+
+.wrapper {
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: flex-start;
+  padding-top: 80px; /* 全体を少し上へ */
 }
 
-.container {
-  margin-top: 40px; /* 全体を少し上に */
-  text-align: left;
+.menu {
+  width: 320px;
 }
 
-.menu-item {
-  margin-bottom: 8px;
+.name {
+  margin-bottom: 24px;
 }
 
-.menu-title {
-  background: none;
-  border: none;
-  font-size: 16px;
+/* --- menu block --- */
+
+.menu-block {
+  margin-bottom: 12px;
+}
+
+.menu-title,
+.text-item,
+.link-item {
+  display: flex;
+  align-items: baseline;
   cursor: pointer;
-  padding: 0;
 }
 
-/* ＋表示 */
-.menu-title.has-plus::before {
-  content: "+";
-  width: 16px;          /* ← 幅を固定 */
+/* 記号カラム固定（左右揺れ防止） */
+.menu-title::before,
+.text-item::before {
+  width: 18px;
   display: inline-block;
   text-align: center;
   margin-right: 6px;
+  flex-shrink: 0;
+}
+
+.menu-title.has-plus::before {
+  content: "+";
   transition: transform 0.2s ease;
 }
-/* ＋回転 */
-.menu-item.open > .menu-title.has-plus::before {
+
+.menu-title.open::before {
   transform: rotate(90deg);
 }
 
-/* 開閉（アニメなし） */
+.text-item::before {
+  content: "●";
+}
+
 .submenu {
   display: none;
-  margin-left: 18px;
+  margin-left: 24px;
+  margin-top: 4px;
 }
 
-.menu-item.open > .submenu {
+.menu-block.open .submenu {
   display: block;
 }
 
-/* リンク */
-a {
-  color: #000;
-  text-decoration: underline;
-  display: block;
-  margin: 4px 0;
+/* --- text meta --- */
+
+.text-meta {
+  margin-left: 24px;
+  margin-bottom: 8px;
 }
 
-/* about */
-.about-list li {
-  list-style: none;
-  margin-left: 18px;
-  margin-bottom: 4px;
+.text-meta div {
+  display: flex;
+  gap: 24px;
+}
+
+.text-meta span {
+  width: 100px;
 }

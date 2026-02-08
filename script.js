@@ -1,23 +1,18 @@
-document.addEventListener("click", async (e) => {
+const titles = document.querySelectorAll(".menu-title.has-plus");
 
-  if (e.target.classList.contains("menu-title")) {
-    const item = e.target.parentElement;
-    const submenu = item.querySelector(".submenu");
-    const url = e.target.dataset.load;
+titles.forEach(title => {
+  title.addEventListener("click", () => {
+    const block = title.parentElement;
 
-    // 他のトップ階層を閉じる
-    document.querySelectorAll(".menu-item.open").forEach(i => {
-      if (i !== item) i.classList.remove("open");
+    document.querySelectorAll(".menu-block").forEach(b => {
+      if (b !== block) {
+        b.classList.remove("open");
+        const t = b.querySelector(".menu-title");
+        if (t) t.classList.remove("open");
+      }
     });
 
-    // about.html 読み込み
-    if (url && !submenu.dataset.loaded) {
-      const res = await fetch(url);
-      submenu.innerHTML = await res.text();
-      submenu.dataset.loaded = "true";
-    }
-
-    item.classList.toggle("open");
-  }
-
+    block.classList.toggle("open");
+    title.classList.toggle("open");
+  });
 });
