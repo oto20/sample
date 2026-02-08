@@ -62,10 +62,6 @@ a {
   transform: rotate(90deg);
 }
 
-.text-item::before {
-  content: "●";
-}
-
 .submenu {
   display: none;
   margin-left: 24px;
@@ -75,6 +71,7 @@ a {
 .menu-block.open .submenu {
   display: block;
 }
+
 
 /* --- text meta --- */
 
@@ -91,3 +88,7 @@ a {
 .text-meta span {
   width: 100px;
 }
+.text-item a {
+  white-space: nowrap;
+}
+
