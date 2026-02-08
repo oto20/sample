@@ -32,11 +32,12 @@ body {
 /* ＋表示 */
 .menu-title.has-plus::before {
   content: "+";
-  margin-right: 8px;
+  width: 16px;          /* ← 幅を固定 */
   display: inline-block;
+  text-align: center;
+  margin-right: 6px;
   transition: transform 0.2s ease;
 }
-
 /* ＋回転 */
 .menu-item.open > .menu-title.has-plus::before {
   transform: rotate(90deg);
