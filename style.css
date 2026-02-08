@@ -10,9 +10,10 @@ body {
   margin: 0;
 
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: flex-start;
 }
+
 
 /* ===== menu container ===== */
 .menu {
@@ -21,7 +22,10 @@ body {
   text-align: left;
   padding: 40px 24px;
   box-sizing: border-box;
+
+  margin-top: 120px; /* ← ここが基準点 */
 }
+
 
 /* ===== menu items ===== */
 .menu-item {
