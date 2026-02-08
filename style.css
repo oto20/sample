@@ -99,3 +99,13 @@ a {
 .text-item {
   white-space: nowrap;
 }
+
+/* about 内は改行させない */
+.menu-block .submenu div {
+  white-space: nowrap;
+}
+
+/* text のタイトルリンクは下線なし */
+.text-item a {
+  text-decoration: none;
+}
