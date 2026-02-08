@@ -1,92 +1,68 @@
-html, body {
-  height: 100%;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
 }
 
 body {
-  font-family: sans-serif;
-  font-size: 14px;
-  line-height: 1.6;
-  margin: 0;
-
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: flex-start;
 }
 
-.menu {
-  width: 100%;
-  max-width: 640px;
-  padding: 40px 24px;
-  margin-top: 15vh;
-  box-sizing: border-box;
+.container {
+  margin-top: 40px; /* 全体を少し上に */
   text-align: left;
 }
 
 .menu-item {
-  margin-bottom: 12px;
+  margin-bottom: 8px;
 }
 
 .menu-title {
   background: none;
   border: none;
-  padding: 0;
-  font-size: 14px;
+  font-size: 16px;
   cursor: pointer;
-  display: inline-flex;
-  align-items: center;
+  padding: 0;
 }
 
-.menu-title::before {
+/* ＋表示 */
+.menu-title.has-plus::before {
   content: "+";
   margin-right: 8px;
+  display: inline-block;
   transition: transform 0.2s ease;
 }
 
-.menu-item.open > .menu-title::before {
+/* ＋回転 */
+.menu-item.open > .menu-title.has-plus::before {
   transform: rotate(90deg);
 }
 
-.menu-item.static .menu-title::before {
-  content: "";
-}
-
-.menu-item.static .menu-title {
-  cursor: default;
-}
-
+/* 開閉（アニメなし） */
 .submenu {
-  margin-left: 20px;
   display: none;
+  margin-left: 18px;
 }
 
 .menu-item.open > .submenu {
   display: block;
 }
 
-.item {
-  margin: 6px 0;
-}
-
-/* link */
+/* リンク */
 a {
   color: #000;
   text-decoration: underline;
-}
-
-a:hover {
-  opacity: 0.6;
+  display: block;
+  margin: 4px 0;
 }
 
 /* about */
-.about-list {
-  margin-left: 20px;
-  padding: 0;
+.about-list li {
   list-style: none;
-}
-
-@media (max-width: 600px) {
-  .menu {
-    margin-top: 10vh;
-    padding: 32px 20px;
-  }
+  margin-left: 18px;
+  margin-bottom: 4px;
 }
