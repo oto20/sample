@@ -129,3 +129,10 @@ html, body {
   }
 
 }
+
+/* project 個別ページの情報は途中改行させない */
+.project-meta {
+  white-space: nowrap;
+  word-break: normal;
+  overflow-wrap: normal;
+}
