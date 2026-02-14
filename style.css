@@ -136,3 +136,25 @@ html, body {
   word-break: normal;
   overflow-wrap: normal;
 }
+
+/* Flickr画像表示 */
+.flickr-image {
+  margin-top: 80px;
+}
+
+.flickr-image img {
+  max-width: 420px;
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .flickr-image {
+    margin-top: 48px;
+  }
+
+  .flickr-image img {
+    max-width: 100%;
+  }
+}
